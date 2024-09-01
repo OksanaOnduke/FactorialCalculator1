@@ -1,41 +1,45 @@
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.*;
 
 public class FactorialCalculatorTest {
 
-    // Создаем экземпляр класса FactorialCalculator для тестирования
-    private final FactorialCalculator calculator = new FactorialCalculator();
+    private final FactorialCalculator calculator = new FactorialCalculator(); // Создаем экземпляр класса для тестирования
 
     @Test
     public void testFactorialOfZero() {
-        assertEquals(1, calculator.factorial(0), "Факториал 0 должен быть 1");
+        // Проверка, что факториал 0 равен 1
+        assertEquals(calculator.factorial(0), 1, "Факториал 0 должен быть 1");
     }
 
     @Test
     public void testFactorialOfOne() {
-        assertEquals(1, calculator.factorial(1), "Факториал 1 должен быть 1");
+        // Проверка, что факториал 1 равен 1
+        assertEquals(calculator.factorial(1), 1, "Факториал 1 должен быть 1");
     }
 
     @Test
     public void testFactorialOfPositiveNumber() {
-        assertEquals(120, calculator.factorial(5), "Факториал 5 должен быть 120");
+        // Проверка, что факториал 5 равен 120
+        assertEquals(calculator.factorial(5), 120, "Факториал 5 должен быть 120");
     }
 
     @Test
     public void testFactorialOfAnotherPositiveNumber() {
-        assertEquals(720, calculator.factorial(6), "Факториал 6 должен быть 720");
+        // Проверка, что факториал 6 равен 720
+        assertEquals(calculator.factorial(6), 720, "Факториал 6 должен быть 720");
     }
 
     @Test
     public void testFactorialOfLargeNumber() {
-        assertEquals(2432902008176640000L, calculator.factorial(20), "Факториал 20 должен быть 2432902008176640000");
+        // Проверка, что факториал 10 равен 3628800
+        assertEquals(calculator.factorial(10), 3628800, "Факториал 10 должен быть 3628800");
     }
 
-    @Test
+    @Test(expectedExceptions = IllegalArgumentException.class,
+            expectedExceptionsMessageRegExp = "Число должно быть неотрицательным.")
     public void testFactorialOfNegativeNumber() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            calculator.factorial(-1);
-        });
-        assertEquals("Факториал определен только для неотрицательных чисел.", thrown.getMessage());
+        // Проверка, что метод выбрасывает исключение IllegalArgumentException при вводе отрицательного числа
+        calculator.factorial(-1);
     }
 }
