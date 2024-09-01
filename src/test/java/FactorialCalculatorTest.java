@@ -3,7 +3,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FactorialCalculatorTest {
 
-    // Создаем экземпляр класса FactorialCalculator для тестирования
     private final FactorialCalculator calculator = new FactorialCalculator();
 
     @Test
