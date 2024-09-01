@@ -4,7 +4,7 @@ import static org.testng.Assert.*;
 
 public class FactorialCalculatorTest {
 
-    private final FactorialCalculator calculator = new FactorialCalculator(); // Создаем экземпляр класса для тестирования
+    private final FactorialCalculator calculator = new FactorialCalculator();
 
     @Test
     public void testFactorialOfZero() {
